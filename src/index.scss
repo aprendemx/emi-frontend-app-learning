@@ -95,16 +95,17 @@ header [class*="help"]:focus {
   color: #e6dbc7 !important;
 }
 
-.user-dropdown .dropdown-toggle {
+#root .user-dropdown .dropdown-toggle.btn {
   background: #5a122c !important;
-  color: #fff !important;      /* antes #15376d: el ícono quedaba azul sobre el guinda */
+  color: #fff !important;
   border: 1px solid #e6dbc7 !important;
   box-shadow: none !important;
   border-radius: 8px;
   font-weight: 500;
 }
 
-.user-dropdown .dropdown-toggle:hover {
+#root .user-dropdown .dropdown-toggle.btn:hover,
+#root .user-dropdown .dropdown-toggle.btn:focus {
   background: #e6dbc7 !important;
   color: #5a122c !important;
 }
