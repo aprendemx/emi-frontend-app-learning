@@ -44,11 +44,19 @@ $white: #fff;
   gap: 2rem;
 }
 
-.course-info-header .title {
-  @extend .emi-course-title;
+// EMI: título y organización del curso en el encabezado de Ulmo.
+// En Teak, el encabezado de Indigo usaba .course-info-header .title/.org.
+.course-title-lockup > div {
+  display: flex;
+  flex-direction: column-reverse;   // título arriba y organización abajo, como en Teak
 }
-.course-info-header .org {
+.course-title-lockup .course-title {
+  @extend .emi-course-title;
+  color: #fff !important;
+}
+.course-title-lockup .small {
   @extend .emi-course-org;
+  color: #fff !important;
 }
 
 .nav-course a {
@@ -89,7 +97,7 @@ header [class*="help"]:focus {
 
 .user-dropdown .dropdown-toggle {
   background: #5a122c !important;
-  color: #15376d !important;
+  color: #fff !important;      /* antes #15376d: el ícono quedaba azul sobre el guinda */
   border: 1px solid #e6dbc7 !important;
   box-shadow: none !important;
   border-radius: 8px;
