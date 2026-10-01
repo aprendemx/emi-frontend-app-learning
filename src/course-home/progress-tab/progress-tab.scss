@@ -1,0 +1,1263 @@
+// === ESTILOS PARA PROGRESS TAB EMI ===
+
+// Variables de color para mantener consistencia con outline-tab
+$primary-color: #5a122c;
+$secondary-color: #5a122c;
+$accent-color: #e6dbc7;
+$success-color: #28a745;
+$info-color: #a67b5b;
+$light-bg: #f8f9fa;
+$white: #ffffff;
+$shadow-light: rgba(0, 0, 0, 0.1);
+$shadow-medium: rgba(0, 0, 0, 0.15);
+
+// === HEADER DEL PROGRESS TAB ===
+.course-home .row.w-100.m-0.mt-3.mb-4.justify-content-between {
+  h1 {
+    color: $primary-color;
+    font-weight: 700;
+    font-size: 2.5rem;
+    position: relative;
+    margin-bottom: 0;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 80px;
+      height: 4px;
+      background: $accent-color !important;
+      border-radius: 2px;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
+  }
+}
+
+// === SECCIONES PRINCIPALES ===
+section.text-dark-700,
+.grades.my-4.p-4.rounded.raised-card {
+  background: $white !important;
+  border: none;
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba($primary-color, 0.06), 
+              0 4px 16px rgba($primary-color, 0.04),
+              0 2px 8px rgba($primary-color, 0.02);
+  margin-bottom: 2rem;
+  overflow: visible;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  backdrop-filter: blur(20px);
+
+  // Borde sutil en la parte superior
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: $secondary-color;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+  }
+
+  &:hover {
+    box-shadow: 0 12px 48px rgba($primary-color, 0.1), 
+                0 8px 24px rgba($primary-color, 0.08),
+                0 4px 12px rgba($primary-color, 0.06);
+    transform: translateY(-4px) scale(1.01);
+
+    &::before {
+      height: 4px;
+      background: $accent-color;
+      opacity: 1;
+    }
+  }
+
+  &:active {
+    transform: translateY(-2px) scale(1.005);
+  }
+
+  h2, h3.h4 {
+    color: $primary-color;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    position: relative;
+    font-size: 1.6rem;
+    letter-spacing: -0.5px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: $accent-color;
+      border-radius: 2px;
+      transition: width 0.4s ease;
+    }
+
+    &:hover::after {
+      width: 80px;
+    }
+  }
+
+  p.small {
+    color: lighten($primary-color, 15%);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+}
+
+// === COURSE COMPLETION SECTION ===
+section.text-dark-700.mb-4.rounded.raised-card.p-4 {
+  background: $white !important;
+  border: none;
+  border-radius: 28px;
+  box-shadow: 0 12px 40px rgba($primary-color, 0.08), 
+              0 6px 20px rgba($primary-color, 0.06),
+              0 3px 10px rgba($primary-color, 0.04);
+  margin-bottom: 2.5rem;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  padding: 2.5rem !important;
+
+  // Efecto de "glow" sutil en los bordes
+  &::after {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    background: $white;
+    border-radius: 29px;
+    z-index: -2;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    box-shadow: 0 0 20px rgba($accent-color, 0.3);
+  }
+
+  &:hover {
+    box-shadow: 0 16px 56px rgba($primary-color, 0.12), 
+                0 8px 28px rgba($primary-color, 0.1),
+                0 4px 14px rgba($primary-color, 0.08);
+    transform: translateY(-6px) scale(1.02);
+
+    &::after {
+      opacity: 0.5;
+    }
+  }
+
+  &:active {
+    transform: translateY(-3px) scale(1.01);
+  }
+
+  h2 {
+    color: $primary-color;
+    font-weight: 900;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    letter-spacing: -1px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: -20px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 6px;
+      height: 60%;
+      background: $accent-color;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 80px;
+      height: 4px;
+      background: $accent-color !important;
+      border-radius: 2px;
+      transition: width 0.5s ease;
+    }
+
+    &:hover::after {
+      width: 120px;
+    }
+  }
+
+  p.small {
+    color: lighten($primary-color, 12%);
+    font-size: 1rem;
+    line-height: 1.7;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+  }
+
+  // Contenedor del donut mejorado
+  .col-12.col-sm-6.col-md-5.mt-sm-n3.p-0.text-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0;
+    position: relative;
+
+    // Efecto de resplandor de fondo
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 240px;
+      height: 240px;
+      background: radial-gradient(circle, rgba($accent-color, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+      z-index: 0;
+      transition: all 0.4s ease;
+    }
+
+    &:hover::before {
+      width: 260px;
+      height: 260px;
+      background: radial-gradient(circle, rgba($accent-color, 0.15) 0%, transparent 70%);
+    }
+
+    // Contenedor del SVG mejorado
+    .donut {
+      filter: drop-shadow(0 12px 32px rgba($primary-color, 0.15));
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      max-width: 220px !important;
+      position: relative;
+      z-index: 1;
+
+      &:hover {
+        filter: drop-shadow(0 16px 40px rgba($primary-color, 0.2));
+        transform: scale(1.08) rotate(2deg);
+      }
+
+      &:active {
+        transform: scale(1.05) rotate(1deg);
+      }
+
+      // Hole del donut con borde sutil
+      .donut-hole {
+        fill: $white;
+        filter: drop-shadow(0 4px 12px rgba($primary-color, 0.1));
+        transition: all 0.3s ease;
+      }
+
+      // Texto del número
+      .donut-chart-number {
+        fill: $primary-color;
+        font-weight: 900;
+        font-size: 0.8rem;
+        font-family: $font-family-sans-serif;
+        transition: all 0.3s ease;
+      }
+
+      // Texto del label
+      .donut-chart-label {
+        fill: $secondary-color;
+        font-weight: 800;
+        font-size: 0.32rem;
+        text-transform: uppercase;
+        letter-spacing: 1.2px;
+        transition: all 0.3s ease;
+      }
+
+      // Segmentos del donut
+      .donut-segment,
+      .donut-ring {
+        stroke-width: 12px;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+        &.complete-stroke {
+          stroke: $secondary-color;
+          filter: drop-shadow(0 4px 12px rgba($secondary-color, 0.35));
+        }
+
+        &.incomplete-stroke {
+          stroke: lighten($light-bg, 3%);
+          opacity: 0.6;
+        }
+
+        &.locked-stroke {
+          stroke: $primary-color;
+          filter: drop-shadow(0 4px 12px rgba($primary-color, 0.35));
+        }
+      }
+
+      // Grupos de segmentos
+      .donut-segment-group {
+        transition: all 0.3s ease;
+
+        &:hover {
+          .donut-segment,
+          .donut-ring {
+            stroke-width: 16px;
+            filter: brightness(1.1);
+          }
+        }
+
+        &:focus {
+          outline: 3px solid $accent-color;
+          outline-offset: 8px;
+          border-radius: 50%;
+        }
+      }
+
+      &:hover {
+        .donut-chart-number {
+          font-size: 0.85rem;
+          fill: darken($primary-color, 5%);
+        }
+
+        .donut-chart-label {
+          font-size: 0.35rem;
+          fill: darken($secondary-color, 10%);
+        }
+      }
+    }
+
+    // Texto de accesibilidad mejorado
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  }
+}
+
+// === CERTIFICATE STATUS CARD ===
+.pgn__card.pgn__card-light[data-testid*="certificate"] {
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba($success-color, 0.1);
+  background: linear-gradient(135deg, $white 0%, lighten($success-color, 48%) 100%);
+  overflow: hidden;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, $success-color 0%, $accent-color 100%);
+  }
+
+  .pgn__card-header {
+    background: transparent;
+    border-bottom: 1px solid rgba($success-color, 0.2);
+
+    .pgn__card-header-title-md {
+      color: darken($success-color, 10%);
+      font-weight: 700;
+      font-size: 1.3rem;
+    }
+  }
+
+  .pgn__card-section {
+    color: darken($success-color, 15%);
+    line-height: 1.6;
+
+    .pgn__hyperlink {
+      color: $secondary-color;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: darken($secondary-color, 15%);
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .pgn__card-footer {
+    background: transparent;
+    padding-top: 1.5rem;
+
+    .btn-outline-brand {
+      background: transparent;
+      border: 2px solid $success-color;
+      color: $success-color;
+      border-radius: 25px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: $success-color;
+        border-color: $success-color;
+        color: $white;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba($success-color, 0.3);
+      }
+    }
+  }
+}
+
+// === GRADES SECTION ===
+.grade-bar {
+  filter: drop-shadow(0 2px 8px rgba($primary-color, 0.1));
+
+  .grade-bar__base {
+    fill: lighten($light-bg, 2%);
+    stroke: rgba($primary-color, 0.1);
+    stroke-width: 1;
+  }
+
+  .grade-bar--passing {
+    fill: $secondary-color;
+  }
+
+  .grade-bar--current-passing {
+    fill: linear-gradient(90deg, $secondary-color 0%, $accent-color 100%);
+  }
+
+  .grade-bar__divider {
+    fill: $white;
+    stroke: $primary-color;
+    stroke-width: 2;
+  }
+
+  text {
+    fill: $primary-color;
+    font-weight: 600;
+    font-size: 0.8rem;
+  }
+
+  // Asegurar que los textos de porcentaje sean visibles
+  .x-small {
+    display: block !important;
+    visibility: visible !important;
+  }
+}
+
+// Banner de éxito
+.row.w-100.m-0.px-4.py-3.py-md-4.rounded-bottom.bg-success-100 {
+  background: lighten($success-color, 45%) !important;
+  border-top: 3px solid $success-color !important;
+  border-radius: 0 0 20px 20px !important;
+  padding: 2rem !important;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  // Borde superior con gradiente sutil
+  &::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: $success-color;
+    transition: all 0.3s ease;
+  }
+
+  &:hover {
+    background: lighten($success-color, 42%) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba($success-color, 0.2);
+
+    &::before {
+      height: 4px;
+      background: darken($success-color, 5%);
+    }
+  }
+
+  .pgn__icon.text-success-300 {
+    color: $success-color !important;
+    background: $white;
+    border-radius: 50%;
+    padding: 8px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba($success-color, 0.25);
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 16px rgba($success-color, 0.35);
+    }
+  }
+
+  .h4 {
+    color: darken($success-color, 15%);
+    font-weight: 800;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.3px;
+  }
+
+  // Texto adicional
+  .small,
+  p {
+    color: darken($success-color, 10%);
+    font-weight: 600;
+    margin: 0;
+  }
+}
+
+// Banner de advertencia/warning - para cuando no está pasando
+.row.w-100.m-0.px-4.py-3.py-md-4.rounded-bottom.bg-warning-100 {
+  background: lighten($info-color, 50%) !important;
+  border-top: 3px solid $info-color !important;
+  border-radius: 0 0 20px 20px !important;
+  padding: 2rem !important;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  // Borde superior con efecto de atención
+  &::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: $info-color;
+    transition: all 0.3s ease;
+    animation: pulseWarning 2s infinite;
+  }
+
+  &:hover {
+    background: lighten($info-color, 47%) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba($info-color, 0.25);
+
+    &::before {
+      height: 4px;
+      background: darken($info-color, 10%);
+    }
+  }
+
+  .pgn__icon {
+    color: darken($info-color, 10%) !important;
+    background: $white;
+    border-radius: 50%;
+    padding: 8px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba($info-color, 0.25);
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 16px rgba($info-color, 0.35);
+    }
+  }
+
+  .h4 {
+    color: darken($info-color, 15%);
+    font-weight: 800;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.3px;
+  }
+
+  // Texto adicional
+  .small,
+  p {
+    color: darken($info-color, 10%);
+    font-weight: 600;
+    margin: 0;
+  }
+}
+
+// === TABLAS DE DATOS ===
+.pgn__data-table {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba($primary-color, 0.05);
+
+  thead {
+    background: $light-bg !important;
+
+    th {
+      border-bottom: 2px solid rgba($secondary-color, 0.1);
+      color: $primary-color;
+      font-weight: 700;
+      padding: 1rem;
+
+      .h5 {
+        color: $primary-color;
+        font-weight: 700;
+        margin: 0;
+      }
+    }
+  }
+
+  tbody {
+    .pgn__data-table-row {
+      transition: all 0.2s ease;
+      border-bottom: 1px solid rgba($secondary-color, 0.08);
+
+      &:hover {
+        background: rgba($secondary-color, 0.03);
+        transform: translateX(4px);
+      }
+
+      .pgn__data-table-cell-wrap {
+        padding: 1rem;
+        color: $primary-color;
+
+        .muted-link {
+          color: $secondary-color;
+          font-weight: 600;
+          text-decoration: none;
+          transition: color 0.2s ease;
+
+          &:hover {
+            color: darken($secondary-color, 15%);
+            text-decoration: underline;
+          }
+        }
+
+        // Celdas con peso de fuente bold
+        &.font-weight-bold {
+          color: $primary-color;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
+
+// Footer de tabla - variante éxito
+.pgn__data-table-footer {
+  overflow: visible !important;
+  border-radius: 0 0 12px 12px !important;
+  padding: 1.5rem 1rem !important;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 10;
+
+  &.bg-success-100 {
+    background: linear-gradient(135deg, lighten($success-color, 45%) 0%, lighten($success-color, 40%) 100%) !important;
+    border-top: 3px solid $success-color !important;
+    animation: pulseSuccessFooter 3s infinite;
+
+    .small {
+      color: darken($success-color, 15%) !important;
+      font-weight: 700;
+      font-size: 0.95rem;
+
+      &.font-weight-bold {
+        font-weight: 900;
+        color: darken($success-color, 20%) !important;
+        font-size: 1rem;
+      }
+    }
+  }
+
+  // Asegurar visibilidad en cualquier contexto
+  .small, .font-weight-bold {
+    display: block !important;
+    visibility: visible !important;
+  }
+}
+
+// Footer de tabla - variante warning (para border-primary + bg-warning-100)
+// Mayor especificidad para sobreescribir Bootstrap
+.pgn__data-table .pgn__data-table-footer.border-top.border-primary.bg-warning-100,
+.pgn__data-table .pgn__data-table-footer.bg-warning-100,
+.pgn__data-table-footer.border-top.border-primary.bg-warning-100,
+.pgn__data-table-footer.bg-warning-100.border-primary {
+  background: lighten($info-color, 50%) !important;
+  border-top: 3px solid $info-color !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-bottom: none !important;
+  border-color: $info-color !important;
+  border-radius: 0 0 16px 16px !important;
+  padding: 1.5rem !important;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: visible !important;
+  z-index: 10;
+
+  // Línea superior decorativa con efecto de atención
+  &::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: 20%;
+    right: 20%;
+    height: 3px;
+    background: $info-color !important;
+    border-radius: 0 0 8px 8px;
+    transition: all 0.3s ease;
+    animation: pulseWarningFooter 3s infinite;
+  }
+
+  &:hover {
+    background: lighten($info-color, 47%) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba($info-color, 0.25);
+    border-color: darken($info-color, 5%) !important;
+
+    &::before {
+      left: 15%;
+      right: 15%;
+      background: darken($info-color, 10%) !important;
+    }
+  }
+
+  .small {
+    color: darken($info-color, 15%) !important;
+    font-weight: 700;
+    font-size: 0.95rem;
+
+    &.font-weight-bold {
+      font-weight: 900;
+      color: darken($info-color, 20%) !important;
+      font-size: 1rem;
+    }
+  }
+
+  // Asegurar visibilidad en cualquier contexto
+  .small, .font-weight-bold {
+    display: block !important;
+    visibility: visible !important;
+  }
+}
+
+// === COLLAPSIBLE SECTIONS ===
+.pgn_collapsible {
+  .pgn__icon {
+    color: $secondary-color;
+    transition: all 0.2s ease;
+
+    &:hover {
+      color: darken($secondary-color, 15%);
+      transform: scale(1.1);
+    }
+  }
+}
+
+// === FIJO: ASEGURAR VISIBILIDAD DE ELEMENTOS CRÍTICOS ===
+// Reglas específicas para elementos que podrían estar siendo cortados
+.course-home .progress-tab,
+.grades.my-4.p-4.rounded.raised-card,
+section.text-dark-700 {
+  
+  // Textos de porcentaje y etiquetas importantes
+  .x-small:not(.mb-4),
+  text.x-small,
+  .small,
+  .font-weight-bold {
+    display: inherit !important;
+    visibility: visible !important;
+    overflow: visible !important;
+  }
+
+  // Contenedores de tooltips y footers
+  .pgn__data-table-footer,
+  [data-testid="currentGradeTooltipContent"],
+  [data-testid="gradeSummaryFooterTotalWeightedGrade"] {
+    overflow: visible !important;
+    visibility: visible !important;
+    z-index: 10;
+  }
+}
+
+// === RELATED LINKS SIDEBAR ===
+.col-12.col-md-4.p-0.px-md-4 {
+  section {
+    // Ocultar completamente el contenedor de Related Links pero mantener otros elementos x-small
+    &.mb-4.x-small {
+      display: none !important;
+    }
+
+    background: linear-gradient(135deg, $white 0%, lighten($light-bg, 3%) 100%);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba($primary-color, 0.06);
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+
+    &:hover {
+      box-shadow: 0 6px 20px rgba($primary-color, 0.1);
+      transform: translateY(-2px);
+    }
+
+    h3.h4 {
+      color: $primary-color;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+
+      li {
+        margin-bottom: 1rem;
+        padding: 0.75rem;
+        border-radius: 12px;
+        transition: all 0.2s ease;
+        position: relative;
+
+        &:hover {
+          background: rgba($secondary-color, 0.05);
+          transform: translateX(4px);
+        }
+
+        &::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 3px;
+          height: 20px;
+          background: $accent-color;
+          border-radius: 2px;
+          opacity: 0;
+          transition: opacity 0.2s ease;
+        }
+
+        &:hover::before {
+          opacity: 1;
+        }
+
+        .pgn__hyperlink {
+          color: $secondary-color;
+          font-weight: 700;
+          text-decoration: none;
+          font-size: 1rem;
+          transition: color 0.2s ease;
+
+          &:hover {
+            color: darken($secondary-color, 15%);
+          }
+        }
+
+        p {
+          color: lighten($primary-color, 20%);
+          font-size: 0.85rem;
+          line-height: 1.4;
+          margin: 0.5rem 0 0 0;
+        }
+      }
+    }
+  }
+}
+
+// === BOTONES GLOBALES ===
+.btn-icon.btn-icon-primary.btn-icon-sm {
+  background: $secondary-color !important;
+  border-color: $secondary-color !important;
+  color: $white !important;
+  border-radius: 12px !important;
+  transition: all 0.3s ease !important;
+
+  &:hover {
+    background: darken($secondary-color, 10%) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba($secondary-color, 0.3) !important;
+  }
+
+  .pgn__icon,
+  svg {
+    color: $white !important;
+  }
+}
+
+// === RESPONSIVE DESIGN ===
+@media (max-width: 768px) {
+  section.text-dark-700,
+  .grades.my-4.p-4.rounded.raised-card {
+    padding: 1.5rem !important;
+    margin-bottom: 1.5rem;
+  }
+
+  .donut {
+    max-width: 140px !important;
+  }
+
+  .col-12.col-md-4.p-0.px-md-4 {
+    section {
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+// === ANIMACIONES ===
+@keyframes fadeInProgress {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+    filter: blur(4px);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translateY(20px) scale(0.98);
+    filter: blur(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-60px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(60px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 20px rgba($accent-color, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba($accent-color, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba($accent-color, 0.3);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) rotate(6deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05) rotate(-2deg);
+  }
+  70% {
+    transform: scale(0.9) rotate(1deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes pulseWarning {
+  0% {
+    background: $info-color;
+    box-shadow: 0 0 10px rgba($info-color, 0.3);
+  }
+  50% {
+    background: darken($info-color, 10%);
+    box-shadow: 0 0 20px rgba($info-color, 0.5);
+  }
+  100% {
+    background: $info-color;
+    box-shadow: 0 0 10px rgba($info-color, 0.3);
+  }
+}
+
+@keyframes pulseWarningFooter {
+  0% {
+    background: $info-color;
+    opacity: 1;
+  }
+  50% {
+    background: darken($info-color, 15%);
+    opacity: 0.8;
+  }
+  100% {
+    background: $info-color;
+    opacity: 1;
+  }
+}
+
+// Aplicar animaciones a las secciones principales
+section.text-dark-700,
+.grades.my-4.p-4.rounded.raised-card {
+  animation: fadeInProgress 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+// Animación escalonada para múltiples secciones con mejores delays
+.row.w-100.m-0 > .col-12:nth-child(1) section:nth-child(1) { 
+  animation: slideInFromLeft 0.8s ease-out;
+  animation-delay: 0.1s; 
+  animation-fill-mode: both;
+}
+.row.w-100.m-0 > .col-12:nth-child(1) section:nth-child(2) { 
+  animation: fadeInProgress 0.8s ease-out;
+  animation-delay: 0.3s; 
+  animation-fill-mode: both;
+}
+.row.w-100.m-0 > .col-12:nth-child(1) section:nth-child(3) { 
+  animation: slideInFromLeft 0.8s ease-out;
+  animation-delay: 0.5s; 
+  animation-fill-mode: both;
+}
+.row.w-100.m-0 > .col-12:nth-child(1) .grades { 
+  animation: slideInFromRight 0.8s ease-out;
+  animation-delay: 0.7s; 
+  animation-fill-mode: both;
+}
+
+// Animación para el donut chart
+.donut {
+  animation: bounceIn 1s cubic-bezier(0.4, 0, 0.2, 1);
+  animation-delay: 0.9s;
+  animation-fill-mode: both;
+}
+
+// Animación para los elementos de la sidebar
+.col-12.col-md-4.p-0.px-md-4 section {
+  animation: slideInFromRight 0.6s ease-out;
+  animation-fill-mode: both;
+}
+
+.col-12.col-md-4.p-0.px-md-4 section:nth-child(1) { animation-delay: 0.4s; }
+.col-12.col-md-4.p-0.px-md-4 section:nth-child(2) { animation-delay: 0.6s; }
+.col-12.col-md-4.p-0.px-md-4 section:nth-child(3) { animation-delay: 0.8s; }
+
+// === OVERRIDE ESPECÍFICO PARA CLASES BOOTSTRAP ===
+// Regla con máxima especificidad para sobreescribir colores de Bootstrap
+.pgn__data-table-footer[class*="border-primary"][class*="bg-warning"] {
+  background: lighten($info-color, 50%) !important;
+  border-top-color: $info-color !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-bottom: none !important;
+}
+
+// Override para texto dentro de elementos con clases Bootstrap
+.pgn__data-table-footer[class*="border-primary"] .small,
+.pgn__data-table-footer[class*="bg-warning"] .small {
+  color: darken($info-color, 15%) !important;
+}
+
+// Override adicional con !important para asegurar que funcione
+.border-primary.bg-warning-100.pgn__data-table-footer {
+  border-color: $info-color !important;
+  background-color: lighten($info-color, 50%) !important;
+}
+
+// === OVERRIDE MÁXIMO - ÚLTIMA LÍNEA DE DEFENSA ===
+// Especificidad extrema para casos difíciles de Bootstrap
+.pgn__data-table-footer.pgn__data-table-footer.border-top.border-primary.bg-warning-100,
+.pgn__data-table-footer.pgn__data-table-footer.bg-warning-100.border-primary,
+[class*="pgn__data-table-footer"][class*="border-primary"][class*="bg-warning"],
+.pgn__data-table .pgn__data-table-footer[class*="border-primary"],
+.pgn__data-table .pgn__data-table-footer[class*="bg-warning"] {
+  background-color: lighten($info-color, 50%) !important;
+  background: lighten($info-color, 50%) !important;
+  border-top: 3px solid $info-color !important;
+  border-left: none !important;
+  border-right: none !important;  
+  border-bottom: none !important;
+  border-color: $info-color !important;
+  border-top-color: $info-color !important;
+}
+
+// Texto específico con máxima especificidad
+.pgn__data-table-footer.pgn__data-table-footer .small,
+[class*="pgn__data-table-footer"][class*="border-primary"] .small,
+[class*="pgn__data-table-footer"][class*="bg-warning"] .small {
+  color: darken($info-color, 15%) !important;
+}
+
+// Override para elementos específicos con atributos de clase
+.pgn__data-table-footer[class~="border-primary"][class~="bg-warning-100"] {
+  background: lighten($info-color, 50%) !important;
+  border-color: $info-color !important;
+}
+
+// Último recurso - usar selectores universales con especificidad alta
+* .pgn__data-table-footer.border-primary.bg-warning-100,
+* .pgn__data-table-footer.bg-warning-100.border-primary {
+  background: lighten($info-color, 50%) !important;
+  border-top-color: $info-color !important;
+  border-left-color: transparent !important;
+  border-right-color: transparent !important;
+  border-bottom-color: transparent !important;
+}
+
+// === REGLAS ESPECÍFICAS PARA CASOS EXTREMOS ===
+// Si todo falla, estas reglas tienen especificidad máxima
+html body .pgn__data-table-footer.border-primary.bg-warning-100,
+html body .pgn__data-table-footer.bg-warning-100.border-primary {
+  background-color: #f5f0e8 !important; // Color calculado de lighten($info-color, 50%)
+  background: #f5f0e8 !important;
+  border-top: 3px solid #a67b5b !important; // $info-color directo
+  border-left: none !important;
+  border-right: none !important;
+  border-bottom: none !important;
+}
+
+html body .pgn__data-table-footer.border-primary.bg-warning-100 .small,
+html body .pgn__data-table-footer.bg-warning-100.border-primary .small {
+  color: #7d5c42 !important; // Color calculado de darken($info-color, 15%)
+}
+
+// Aplicar estilos con CSS variables como respaldo
+.pgn__data-table-footer.border-primary.bg-warning-100,
+.pgn__data-table-footer.bg-warning-100.border-primary {
+  --emi-bg-color: #f5f0e8;
+  --emi-border-color: #a67b5b;
+  --emi-text-color: #7d5c42;
+  
+  background-color: var(--emi-bg-color) !important;
+  background: var(--emi-bg-color) !important;
+  border-top-color: var(--emi-border-color) !important;
+  color: var(--emi-text-color) !important;
+}
+
+// === CORREGIR TÍTULOS CORTADOS ===
+// Asegurar que los títulos principales tengan espacio suficiente
+h2, h3, h4, h5, h6 {
+  overflow: visible !important;
+  text-overflow: unset !important;
+  white-space: normal !important;
+  width: auto !important;
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+// Específicamente para Grade summary y Detailed grades
+.h3, h3 {
+  overflow: visible !important;
+  word-wrap: break-word !important;
+  hyphens: auto !important;
+  line-height: 1.4 !important;
+  margin-bottom: 1rem !important;
+}
+
+// Contenedores de secciones
+section, .section {
+  overflow: visible !important;
+  
+  > h2, > h3, > h4, > .h2, > .h3, > .h4 {
+    overflow: visible !important;
+    text-overflow: unset !important;
+    max-width: 100% !important;
+    width: auto !important;
+  }
+}
+
+// Asegurar que las tablas y contenido no interfieran con títulos
+.pgn__data-table {
+  margin-top: 1.5rem !important;
+  
+  // El título debe estar completamente visible antes de la tabla
+  &::before {
+    content: '';
+    display: block;
+    height: 0.5rem;
+    width: 100%;
+    clear: both;
+  }
+}
+
+// Corregir cualquier overflow en el contenido de progreso
+[class*="progress"], [class*="grade"] {
+  overflow: visible !important;
+  
+  h1, h2, h3, h4, h5, h6,
+  .h1, .h2, .h3, .h4, .h5, .h6 {
+    overflow: visible !important;
+    text-overflow: unset !important;
+    white-space: normal !important;
+  }
+}
+
+// === CORREGIR TOOLTIPS Y HOVER EFFECTS ===
+// Asegurar que los tooltips no se corten
+.tooltip, [role="tooltip"], .pgn__tooltip {
+  z-index: 9999 !important;
+  overflow: visible !important;
+  max-width: 300px !important;
+  word-wrap: break-word !important;
+  white-space: normal !important;
+}
+
+// Corregir elementos que aparecen al hacer hover
+[data-testid*="tooltip"], [aria-describedby*="tooltip"] {
+  position: relative !important;
+  overflow: visible !important;
+}
+
+// Asegurar que los iconos de información no causen overflow
+.fa-info-circle, .pgn__icon, [class*="icon"] {
+  overflow: visible !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+// Corregir elementos de porcentaje que se cortan al hacer hover
+.grade-bar, [class*="grade"], [class*="percent"] {
+  overflow: visible !important;
+  position: relative !important;
+  
+  text, .x-small, small {
+    overflow: visible !important;
+    text-overflow: unset !important;
+    white-space: nowrap !important;
+    position: relative !important;
+    z-index: 10 !important;
+  }
+}
+
+// Específico para SVG y gráficos de barras
+svg {
+  overflow: visible !important;
+  
+  text {
+    overflow: visible !important;
+    text-overflow: unset !important;
+  }
+}

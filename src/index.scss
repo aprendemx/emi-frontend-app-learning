@@ -1,9 +1,122 @@
 @use "@openedx/paragon/styles/css/core/custom-media-breakpoints" as paragonCustomMediaBreakpoints;
 
+// EMI: variables de Paragon para los estilos de EMI. Solo funciones y variables,
+// que no generan CSS; el core completo duplicaría lo que Ulmo ya carga como CSS.
+// $white va antes porque EMI lo usa dentro de rgba(), que no acepta var().
+$white: #fff;
+@import "~@openedx/paragon/styles/scss/core/functions";
+@import "~@openedx/paragon/styles/scss/core/variables";
+
+.container-xl.py-2.d-flex.align-items-center {
+  max-width: 100vw !important;
+  width: 100vw !important;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  box-sizing: border-box;
+}
+
+
 @import "~@edx/frontend-component-footer/dist/footer";
 @import "~@edx/frontend-component-header/dist/index";
 
+// --- EMI NAV STYLES ---
+// --- EMI TABS STYLE ---
 
+
+.container-xl.py-2.d-flex.align-items-center {
+  @extend .site-header-desktop;
+  gap: 1.5rem;
+  width: 100vw;
+  max-width: 100vw !important;
+  padding-left: 5rem !important;
+  padding-right: 5rem !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  background: #5a122c !important;
+  z-index: 10;
+}
+
+.course-title-lockup {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.course-info-header .title {
+  @extend .emi-course-title;
+}
+.course-info-header .org {
+  @extend .emi-course-org;
+}
+
+.nav-course a {
+  display: block; padding: 0.5rem 1rem; // antes @extend .nav-link; Bootstrap ya no se compila
+}
+
+// --- EMI HEADER HELP BUTTON STYLES ---
+/* Estilo para el botón Help del header */
+header a.text-gray-700,
+header button.text-gray-700,
+header .text-gray-700 {
+  color: white !important;
+}
+
+/* Estilo específico para el botón Help en hover y focus */
+header a.text-gray-700:hover,
+header a.text-gray-700:focus,
+header button.text-gray-700:hover,
+header button.text-gray-700:focus {
+  color: #f8f9fa !important; /* Un blanco ligeramente más suave en hover */
+}
+
+/* Si el botón Help tiene una clase específica, también lo cubrimos */
+header .help-button,
+header [class*="help"] {
+  color: white !important;
+}
+
+header .help-button:hover,
+header .help-button:focus,
+header [class*="help"]:hover,
+header [class*="help"]:focus {
+  color: #f8f9fa !important;
+}
+.nav-course a:hover {
+  color: #e6dbc7 !important;
+}
+
+.user-dropdown .dropdown-toggle {
+  background: #5a122c !important;
+  color: #15376d !important;
+  border: 1px solid #e6dbc7 !important;
+  box-shadow: none !important;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.user-dropdown .dropdown-toggle:hover {
+  background: #e6dbc7 !important;
+  color: #5a122c !important;
+}
+
+.theme-toggle-button,
+.mr-3:has(.theme-toggle-button) {
+  display: none !important;
+}
+
+.container-xl .nav-link,
+.container-xl .nav-link.ml-2,
+.container-xl .nav-course a,
+.container-xl .emi-course-title,
+.container-xl .emi-course-org,
+.container-xl .course-info-header .title,
+.container-xl .course-info-header .org {
+  color: #fff !important;
+  font-weight: 500;
+}
+////////////////////////////////////////////////
 #root {
   .app-container {
     display: flex;
@@ -42,28 +155,10 @@
   }
 }
 
-.nav-underline-tabs {
-  margin: 0 0 -1px;
-
-  .nav-link {
-    border-bottom: 4px solid transparent;
-    border-top: 4px solid transparent;
-    color: var(--pgn-color-gray-700);
-
-    // temporary until we can remove .btn class from dropdowns
-    border-left: 0;
-    border-right: 0;
-    border-radius: 0;
-
-    &:hover,
-    &:focus,
-    &.active {
-      font-weight: var(--pgn-typography-font-weight-normal);
-      color: var(--pgn-color-primary-500);
-      border-bottom-color: var(--pgn-color-primary-500);
-    }
-  }
-}
+// === TABS STYLES MOVED TO emi-tabs.scss ===
+// .nav-underline-tabs {
+//   Los estilos de tabs ahora están en course-tabs/emi-tabs.scss
+// }
 
 .pgn__menu-select .pgn__menu-select-popup {
   position: static;
@@ -76,13 +171,6 @@
   margin-bottom: 4rem;
   margin-right: auto;
   margin-left: auto;
-}
-
-.sequence {
-  @media (--pgn-size-breakpoint-min-width-sm) {
-    border: solid 1px #eaeaea;
-    border-radius: 4px;
-  }
 }
 
 .sequence-navigation-container {
@@ -431,6 +519,21 @@
   width: 56px !important;
   height: 56px !important;
 }
+.logo,
+.logo img {
+  height: 50px !important;
+  width: auto !important;
+}
+.site-header-desktop {
+  background-color: #5a122c !important;
+  height: 90px !important;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  width: 100vw !important;
+  margin: 0 !important;
+}
 
 @media (--pgn-size-breakpoint-max-width-xs) {
   .course-outline-tab .pgn__card {
@@ -448,6 +551,28 @@
   }
 }
 
+.nav-link,
+.nav-link:visited,
+.nav-link:active,
+.nav-link.active {
+  color: #fff !important;
+}
+
+.site-header-mobile {
+  background-color: #5a122c !important;
+  color: #fff !important;
+  min-height: 40px !important;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+// Ocultar el botón de cambio de tema en todos los dispositivos
+.theme-toggle-button,
+.mr-3:has(.theme-toggle-button) {
+  display: none !important;
+}
 // Import component-specific sass files
 @import "courseware/course/celebration/CelebrationModal.scss";
 @import "courseware/course/sidebar/sidebars/discussions/Discussions.scss";
@@ -464,5 +589,289 @@
 @import "product-tours/newUserCourseHomeTour/NewUserCourseHomeTourModal.scss";
 @import "course-home/courseware-search/courseware-search.scss";
 @import "course-tabs/course-tabs-navigation.scss";
+@import "course-tabs/emi-tabs.scss";
+@import "course-home/outline-tab/outline-tab.scss";
+@import "course-home/progress-tab/progress-tab.scss";
 @import "courseware/course/sidebar/common/SidebarBase.scss";
 @import "courseware/course/sidebar/sidebars/course-outline/CourseOutlineTray.scss";
+
+// === ESTILOS GLOBALES EMI ===
+// Variables globales EMI
+$emi-primary: #5a122c;
+$emi-secondary: #a86a2c;
+$emi-accent: #e6dbc7;
+$emi-white: #ffffff;
+
+// === SOBREESCRIBIR BOTONES ICON PRIMARY GLOBALMENTE ===
+.btn-icon.btn-icon-primary,
+.btn-icon.btn-icon-primary.btn-icon-sm {
+  background: $emi-primary !important;
+  border-color: $emi-primary !important;
+  color: $emi-white !important;
+  transition: all 0.3s ease !important;
+
+  .btn-icon__icon,
+  svg {
+    color: $emi-white !important;
+    fill: currentColor !important;
+  }
+
+  &:hover {
+    background: darken($emi-primary, 10%) !important;
+    border-color: darken($emi-primary, 10%) !important;
+    color: $emi-white !important;
+    transform: translateY(-1px) !important;
+
+    .btn-icon__icon,
+    svg {
+      color: $emi-white !important;
+    }
+  }
+
+  &:focus {
+    background: $emi-primary !important;
+    border-color: $emi-primary !important;
+    color: $emi-white !important;
+    outline: 2px solid $emi-accent !important;
+    outline-offset: 2px !important;
+
+    .btn-icon__icon,
+    svg {
+      color: $emi-white !important;
+    }
+  }
+
+  &:active {
+    background: darken($emi-primary, 15%) !important;
+    border-color: darken($emi-primary, 15%) !important;
+    color: $emi-white !important;
+    transform: translateY(0) !important;
+
+    .btn-icon__icon,
+    svg {
+      color: $emi-white !important;
+    }
+  }
+}
+
+// === SOBREESCRIBIR BOTONES ADICIONALES GLOBALMENTE ===
+.btn-tertiary {
+  background: transparent !important;
+  border: 1px solid $emi-primary !important;
+  color: $emi-primary !important;
+  transition: all 0.3s ease !important;
+
+  &:hover,
+  &:focus {
+    background: $emi-primary !important;
+    border-color: $emi-primary !important;
+    color: $emi-white !important;
+    transform: translateY(-1px) !important;
+  }
+
+  &:active {
+    background: darken($emi-primary, 10%) !important;
+    border-color: darken($emi-primary, 10%) !important;
+    transform: translateY(0) !important;
+  }
+}
+
+// Botón brand global
+.btn-brand {
+  background: linear-gradient(135deg, $emi-primary 0%, lighten($emi-primary, 15%) 100%) !important;
+  border: none !important;
+  color: $emi-white !important;
+  border-radius: 30px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  
+  &::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: -100% !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: linear-gradient(90deg, transparent, rgba($emi-white, 0.2), transparent) !important;
+    transition: left 0.6s !important;
+  }
+
+  &:hover {
+    background: linear-gradient(135deg, darken($emi-primary, 5%) 0%, $emi-primary 100%) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba($emi-primary, 0.4) !important;
+    color: $emi-white !important;
+    
+    &::before {
+      left: 100% !important;
+    }
+  }
+
+  &:focus {
+    background: linear-gradient(135deg, $emi-primary 0%, lighten($emi-primary, 15%) 100%) !important;
+    outline: 2px solid $emi-accent !important;
+    outline-offset: 2px !important;
+    color: $emi-white !important;
+  }
+
+  &:active {
+    transform: translateY(0) !important;
+    background: linear-gradient(135deg, darken($emi-primary, 10%) 0%, darken($emi-primary, 5%) 100%) !important;
+  }
+}
+
+// === SOBREESCRIBIR ICONOS SVG GLOBALMENTE ===
+.text-gray-400,
+.text-gray-500 {
+  &.svg-inline--fa,
+  svg {
+    color: $emi-primary !important;
+    fill: currentColor !important;
+  }
+}
+
+.text-success {
+  &.svg-inline--fa,
+  svg {
+    color: #28a745 !important;
+    fill: currentColor !important;
+  }
+}
+
+// === CORREGIR LAYOUT Y MÁRGENES GLOBALES ===
+
+// Contenedor principal con márgenes apropiados
+.container-xl {
+  padding-left: 5rem !important;
+  padding-right: 5rem !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: calc(100vw - 10rem) !important;
+}
+
+// Layout principal con márgenes
+main#main-content {
+  margin: 0 5rem !important;
+  padding: 0 !important;
+  max-width: calc(100vw - 10rem) !important;
+}
+
+// Navegación de curso con márgenes
+.course-tabs-navigation {
+  margin: 0 5rem !important;
+  padding: 0 !important;
+  max-width: calc(100vw - 10rem) !important;
+  
+  .container-xl {
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 1rem !important;
+  }
+}
+
+// AlertList con márgenes consistentes
+.alert-list {
+  margin-left: 5rem !important;
+  margin-right: 5rem !important;
+  max-width: calc(100vw - 10rem) !important;
+}
+
+// Responsive adjustments
+@media (max-width: 1200px) {
+  .container-xl {
+    padding-left: 3rem !important;
+    padding-right: 3rem !important;
+    max-width: calc(100vw - 6rem) !important;
+  }
+  
+  main#main-content {
+    margin: 0 3rem !important;
+    max-width: calc(100vw - 6rem) !important;
+  }
+  
+  .course-tabs-navigation {
+    margin: 0 3rem !important;
+    max-width: calc(100vw - 6rem) !important;
+  }
+  
+  .alert-list {
+    margin-left: 3rem !important;
+    margin-right: 3rem !important;
+    max-width: calc(100vw - 6rem) !important;
+  }
+  
+  .container-xl.py-2.d-flex.align-items-center {
+    padding-left: 3rem !important;
+    padding-right: 3rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .container-xl {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+    max-width: calc(100vw - 3rem) !important;
+  }
+  
+  main#main-content {
+    margin: 0 1.5rem !important;
+    max-width: calc(100vw - 3rem) !important;
+  }
+  
+  .course-tabs-navigation {
+    margin: 0 1.5rem !important;
+    max-width: calc(100vw - 3rem) !important;
+  }
+  
+  .alert-list {
+    margin-left: 1.5rem !important;
+    margin-right: 1.5rem !important;
+    max-width: calc(100vw - 3rem) !important;
+  }
+  
+  .container-xl.py-2.d-flex.align-items-center {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    max-width: 100vw !important;
+    width: 100vw !important;
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .container-xl {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    max-width: calc(100vw - 2rem) !important;
+  }
+  
+  main#main-content {
+    margin: 0 1rem !important;
+    max-width: calc(100vw - 2rem) !important;
+  }
+  
+  .course-tabs-navigation {
+    margin: 0 1rem !important;
+    max-width: calc(100vw - 2rem) !important;
+  }
+  
+  .alert-list {
+    margin-left: 1rem !important;
+    margin-right: 1rem !important;
+    max-width: calc(100vw - 2rem) !important;
+  }
+  
+  .container-xl.py-2.d-flex.align-items-center {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    max-width: 100vw !important;
+    width: 100vw !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}

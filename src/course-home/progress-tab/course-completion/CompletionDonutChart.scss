@@ -1,3 +1,11 @@
+// === VARIABLES EMI PARA DONUT CHART ===
+$emi-primary: #5a122c;
+$emi-secondary: #a86a2c;
+$emi-accent: #e6dbc7;
+$emi-success: #28a745;
+$emi-light: #f8f9fa;
+$emi-white: #ffffff;
+
 .donut rect {
   fill: transparent;
   width: 4px;
@@ -5,39 +13,43 @@
   transform-origin: center;
 }
 
+// Mejora para el círculo central
+.donut-hole {
+  fill: rgba(255, 255, 255, 0.98) !important;
+  stroke: rgba(90, 18, 44, 0.1) !important;
+  stroke-width: 1px !important;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.08));
+}
+
 .donut-chart-label {
   font: {
-    family: var(--pgn-typography-font-family-sans-serif);
-    size: .2rem;
-    weight: var(--pgn-typography-font-weight-normal);
+    family: $font-family-sans-serif;
+    size: .2rem !important;
+    weight: $font-weight-bold;
   }
   text-anchor: middle;
+  fill: $emi-secondary !important;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  dominant-baseline: central;
+  font-weight: 700;
 }
 
 .donut-chart-number {
   font: {
-    family: var(--pgn-typography-font-family-monospace);
-    size: .5rem;
-    weight: var(--pgn-typography-font-weight-bold);
+    family: $font-family-sans-serif;
+    size: .5rem !important;
+    weight: 900;
   }
-  line-height: 1rem;
+  line-height: 1;
   text-anchor: middle;
-  -moz-transform: translateY(-0.6em);
-  -ms-transform: translateY(-0.6em);
-  -webkit-transform: translateY(-0.6em);
-  transform: translateY(-0.6em);
-}
-
-.donut-chart-text {
-  fill: var(--pgn-color-primary-500);
-  -moz-transform: translateY(0.25em);
-  -ms-transform: translateY(0.25em);
-  -webkit-transform: translateY(0.25em);
-  transform: translateY(0.25em);
+  fill: $emi-primary !important;
+  dominant-baseline: central;
+  font-weight: 900;
 }
 
 .donut-ring, .donut-segment {
-  stroke-width: 6px;
+  stroke-width: 8px;
   fill: transparent;
 }
 
@@ -49,26 +61,29 @@
     outline: none;
 
     circle {
-      stroke-width: 7px;
+      stroke-width: 5px;
     }
   }
 }
 
 .donut-ring, .donut-segment, .donut-hole {
   &.complete-stroke {
-    stroke: var(--pgn-color-info-500);
+    stroke: $emi-secondary !important;
+    filter: drop-shadow(0 2px 4px rgba($emi-secondary, 0.3));
   }
 
   &.divider-stroke {
-    stroke-width: 7px;
-    stroke: white;
+    stroke-width: 9px;
+    stroke: $emi-white;
   }
 
   &.incomplete-stroke {
-    stroke: var(--pgn-color-light-300);
+    stroke: lighten($emi-light, 3%) !important;
+    opacity: 0.6;
   }
 
   &.locked-stroke {
-    stroke: var(--pgn-color-primary-500);
+    stroke: $emi-primary !important;
+    filter: drop-shadow(0 2px 4px rgba($emi-primary, 0.3));
   }
 }

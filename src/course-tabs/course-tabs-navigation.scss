@@ -1,6 +1,9 @@
 .course-tabs-navigation {
   position: relative;
   border-bottom: solid 1px #eaeaea;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  max-width: 100% !important;
 
   .nav a,
   .nav button {
@@ -21,6 +24,8 @@
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 10px;
+    padding: 0 !important;
+    margin: 0 !important;
   }
 
   .nav-menu {
@@ -34,5 +39,10 @@
     margin-bottom: 10px;
   }
 
-
+  .container-xl {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+  }
 }

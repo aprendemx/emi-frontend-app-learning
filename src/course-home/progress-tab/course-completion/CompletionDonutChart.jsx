@@ -28,22 +28,50 @@ const CompletionDonutChart = () => {
 
   return (
     <>
-      <svg role="img" width="50%" height="100%" viewBox="0 0 42 42" className="donut" style={{ maxWidth: '178px' }} aria-hidden="true">
-        {/* The radius (or "r" attribute) is based off of a circumference of 100 in order to simplify percentage
-            calculations. The subsequent stroke-dasharray values found in each segment should add up to equal 100
-            in order to wrap around the circle once. */}
-        <circle className="donut-hole" fill="#fff" cx="21" cy="21" r="15.91549430918954" />
+      <svg role="img" width="100%" height="100%" viewBox="0 0 42 42" className="donut" style={{ maxWidth: '200px' }} aria-hidden="true">
+        {/* Círculo de fondo más grande */}
+        <circle className="donut-hole" fill="#fff" cx="21" cy="21" r="19" stroke="#e9ecef" strokeWidth="1" />
+        
+        {/* Círculo interior para el contenido - más grande para el texto */}
+        <circle fill="rgba(90, 18, 44, 0.05)" cx="21" cy="21" r="16" />
+        
         <g className="donut-chart-text">
-          <text x="50%" y="50%" className="donut-chart-number">
+          <text x="50%" y="46%" className="donut-chart-number">
             {completePercentage}{isLocaleRtl && '\u200f'}%
           </text>
-          <text x="50%" y="50%" className="donut-chart-label">
+          <text x="50%" y="65%" className="donut-chart-label">
             {intl.formatMessage(messages.donutLabel)}
           </text>
         </g>
-        <IncompleteDonutSegment incompletePercentage={incompletePercentage} />
-        <LockedDonutSegment lockedPercentage={lockedPercentage} />
-        <CompleteDonutSegment completePercentage={completePercentage} lockedPercentage={lockedPercentage} />
+        
+        {/* Progreso como borde del círculo exterior */}
+        <circle
+          fill="none"
+          cx="21"
+          cy="21"
+          r="19"
+          stroke="#e9ecef"
+          strokeWidth="3"
+        />
+        <circle
+          fill="none"
+          cx="21"
+          cy="21"
+          r="19"
+          stroke="url(#progressGradient)"
+          strokeWidth="3"
+          strokeDasharray={`${(completePercentage / 100) * 119.38} 119.38`}
+          strokeDashoffset="0"
+          strokeLinecap="round"
+          transform="rotate(-90 21 21)"
+        />
+        
+        <defs>
+          <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#e6dbc7" />
+            <stop offset="100%" stopColor="#a86a2c" />
+          </linearGradient>
+        </defs>
       </svg>
       <div className="sr-only">
         {intl.formatMessage(messages.percentComplete, { percent: completePercentage })}

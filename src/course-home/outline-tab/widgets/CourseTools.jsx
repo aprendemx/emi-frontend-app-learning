@@ -28,6 +28,9 @@ const CourseTools = () => {
     return null;
   }
 
+  // EMI: Ocultar Course Tools - retornar null para no mostrar la sección
+  return null;
+
   const eventProperties = {
     org_key: org,
     courserun_key: courseId,

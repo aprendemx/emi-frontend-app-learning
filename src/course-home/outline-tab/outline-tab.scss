@@ -1,0 +1,1125 @@
+// === ESTILOS PARA OUTLINE TAB EMI ===
+
+// Variables de color para mantener consistencia
+$primary-color: #5a122c;
+$secondary-color: #5a122c;
+$accent-color: #e6dbc7;
+$success-color: #a67b5b;
+$info-color: #d9d9d9;
+$light-bg: #556b2f;
+$white: #ffffff;
+$shadow-light: rgba(0, 0, 0, 0.1);
+$shadow-medium: rgba(0, 0, 0, 0.15);
+
+// === CONTENEDOR PRINCIPAL ===
+.course-outline-tab {
+  background: $white;
+  border-radius: 28px;
+  padding: 2.5rem;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 12px 40px rgba($primary-color, 0.08), 
+              0 6px 20px rgba($primary-color, 0.06),
+              0 3px 10px rgba($primary-color, 0.04);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  backdrop-filter: blur(20px);
+
+  // Borde superior elegante
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: $secondary-color;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+    border-radius: 28px 28px 0 0;
+  }
+
+  &:hover {
+    box-shadow: 0 16px 56px rgba($primary-color, 0.12), 
+                0 8px 28px rgba($primary-color, 0.1),
+                0 4px 14px rgba($primary-color, 0.08);
+    transform: translateY(-6px) scale(1.01);
+
+    &::before {
+      height: 5px;
+      background: $accent-color;
+      opacity: 1;
+    }
+  }
+
+  &:active {
+    transform: translateY(-3px) scale(1.005);
+  }
+
+  // Columna principal del contenido
+  .col-md-8 {
+    padding-right: 2.5rem;
+    transition: all 0.3s ease;
+
+    @media (max-width: 768px) {
+      padding-right: 0;
+      margin-bottom: 2rem;
+    }
+  }
+
+  // Columna lateral
+  .col-md-4 {
+    transition: all 0.3s ease;
+
+    @media (max-width: 768px) {
+      margin-top: 1.5rem;
+    }
+  }
+}
+
+// === ALERTAS Y NOTIFICACIONES ===
+.alert-success {
+  background: lighten($success-color, 42%);
+  border: 2px solid lighten($success-color, 30%);
+  border-radius: 20px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 32px rgba($success-color, 0.15), 
+              0 4px 16px rgba($success-color, 0.1);
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  // Borde lateral de énfasis
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 6px;
+    background: $success-color;
+    border-radius: 20px 0 0 20px;
+    transition: width 0.3s ease;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 48px rgba($success-color, 0.2), 
+                0 6px 24px rgba($success-color, 0.15);
+
+    &::before {
+      width: 8px;
+    }
+  }
+
+  .alert-heading {
+    color: darken($success-color, 15%);
+    font-weight: 800;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    letter-spacing: -0.3px;
+  }
+
+  .btn-primary {
+    background: $success-color;
+    border-color: $success-color;
+    border-radius: 30px;
+    padding: 1rem 2.5rem;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+
+    // Efecto shimmer
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba($white, 0.3), transparent);
+      transition: left 0.6s;
+    }
+
+    &:hover {
+      background: darken($success-color, 10%);
+      border-color: darken($success-color, 10%);
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 25px rgba($success-color, 0.4);
+
+      &::before {
+        left: 100%;
+      }
+    }
+
+    &:active {
+      transform: translateY(-1px) scale(1.02);
+    }
+  }
+}
+
+// === ALERTA DE CONTENIDO PROGRAMADO (SCHEDULED CONTENT) ===
+.alert-info.fade.alert-content,
+.alert.alert-info {
+  background: lighten($info-color, 45%) !important;
+  border: 2px solid lighten($info-color, 35%) !important;
+  border-radius: 24px !important;
+  padding: 2.5rem !important;
+  margin-bottom: 2.5rem !important;
+  box-shadow: 0 10px 40px rgba($info-color, 0.12), 
+              0 6px 20px rgba($info-color, 0.08),
+              0 3px 10px rgba($info-color, 0.06) !important;
+  position: relative;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  backdrop-filter: blur(20px);
+
+  // Borde superior distintivo
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: $info-color !important;
+    border-radius: 24px 24px 0 0;
+    transition: all 0.4s ease;
+    box-shadow: 0 2px 8px rgba($info-color, 0.3);
+  }
+
+  // Efecto glow sutil
+  &::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: transparent;
+    border-radius: 26px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    box-shadow: 0 0 25px rgba($accent-color, 0.4);
+  }
+
+  &:hover {
+    transform: translateY(-6px) scale(1.02) !important;
+    box-shadow: 0 16px 56px rgba($info-color, 0.18), 
+                0 8px 28px rgba($info-color, 0.15),
+                0 4px 14px rgba($info-color, 0.12) !important;
+
+    &::before {
+      height: 6px !important;
+      background: $accent-color !important;
+      box-shadow: 0 3px 12px rgba($accent-color, 0.5) !important;
+    }
+
+    &::after {
+      opacity: 0.6;
+    }
+  }
+
+  &:active {
+    transform: translateY(-3px) scale(1.01) !important;
+  }
+
+  // Estilos para el contenido interior
+  .pgn__alert-message-wrapper {
+    .alert-message-content {
+      // Contenedor principal flexible
+      .d-flex {
+        align-items: center;
+        gap: 2rem;
+        
+        @media (max-width: 992px) {
+          flex-direction: column;
+          align-items: stretch;
+          gap: 1.5rem;
+        }
+
+        // Columna del texto
+        .col-lg-7 {
+          flex: 1;
+          padding: 0 !important;
+
+          .alert-heading {
+            color: darken($info-color, 20%) !important;
+            font-weight: 900 !important;
+            margin-bottom: 1.2rem !important;
+            font-size: 1.5rem !important;
+            letter-spacing: -0.5px;
+            line-height: 1.3;
+            position: relative;
+
+            &::after {
+              content: '';
+              position: absolute;
+              bottom: -6px;
+              left: 0;
+              width: 60px;
+              height: 4px;
+              background: $accent-color;
+              border-radius: 2px;
+              transition: width 0.4s ease;
+            }
+
+            &:hover::after {
+              width: 100px;
+            }
+          }
+
+          // Texto del cuerpo
+          + div,
+          ~ div:not(.flex-grow-0) {
+            color: darken($info-color, 15%) !important;
+            font-size: 1rem !important;
+            line-height: 1.6;
+            font-weight: 500;
+            margin: 0;
+          }
+        }
+
+        // Columna del botón
+        .flex-grow-0 {
+          .btn,
+          .btn-primary {
+            background: $info-color !important;
+            border: none !important;
+            color: $white !important;
+            border-radius: 35px !important;
+            padding: 1.2rem 3rem !important;
+            font-weight: 800 !important;
+            font-size: 1rem !important;
+            letter-spacing: 0.8px !important;
+            text-transform: uppercase !important;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba($info-color, 0.3) !important;
+            text-decoration: none !important;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 56px;
+            
+            // Efecto shimmer avanzado
+            &::before {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: -150%;
+              width: 150%;
+              height: 100%;
+              background: linear-gradient(90deg, transparent, rgba($white, 0.4), rgba($white, 0.6), rgba($white, 0.4), transparent);
+              transition: left 0.8s;
+              transform: skewX(-25deg);
+            }
+
+            // Efecto de resplandor
+            &::after {
+              content: '';
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              width: 0;
+              height: 0;
+              background: rgba($white, 0.3);
+              border-radius: 50%;
+              transform: translate(-50%, -50%);
+              transition: all 0.6s;
+            }
+
+            &:hover {
+              background: darken($info-color, 8%) !important;
+              transform: translateY(-4px) scale(1.05) !important;
+              box-shadow: 0 12px 35px rgba($info-color, 0.5) !important;
+              
+              &::before {
+                left: 150%;
+              }
+
+              &::after {
+                width: 300px;
+                height: 300px;
+              }
+            }
+
+            &:active {
+              transform: translateY(-2px) scale(1.02) !important;
+              box-shadow: 0 8px 25px rgba($info-color, 0.4) !important;
+            }
+
+            &:focus {
+              outline: 3px solid $accent-color !important;
+              outline-offset: 3px !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Animación de entrada específica
+  &.show {
+    animation: alertSlideIn 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    animation-fill-mode: both;
+  }
+}
+
+// Animación específica para alertas
+@keyframes alertSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    filter: blur(4px);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateY(15px) scale(0.98);
+    filter: blur(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+// === TARJETA DE PROGRESO ===
+.pgn__card {
+  border: none;
+  border-radius: 28px;
+  box-shadow: 0 10px 40px rgba($primary-color, 0.1), 
+              0 6px 20px rgba($primary-color, 0.08),
+              0 3px 10px rgba($primary-color, 0.06);
+  margin-bottom: 2rem;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  background: $white;
+  
+  // Borde superior vibrante
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: $secondary-color;
+    z-index: 2;
+    transition: all 0.4s ease;
+    border-radius: 28px 28px 0 0;
+  }
+
+  // Efecto glow sutil
+  &::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: $white;
+    border-radius: 30px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    box-shadow: 0 0 30px rgba($accent-color, 0.4);
+  }
+
+  &:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 16px 60px rgba($primary-color, 0.15), 
+                0 10px 30px rgba($primary-color, 0.12),
+                0 5px 15px rgba($primary-color, 0.1);
+
+    &::before {
+      height: 6px;
+      background: $accent-color;
+      box-shadow: 0 2px 8px rgba($accent-color, 0.5);
+    }
+
+    &::after {
+      opacity: 0.6;
+    }
+  }
+
+  &:active {
+    transform: translateY(-4px) scale(1.01);
+  }
+
+  .pgn__card-header {
+    background: rgba($white, 0.98);
+    backdrop-filter: blur(20px);
+    color: $primary-color;
+    padding: 2.5rem;
+    border-bottom: 2px solid rgba($secondary-color, 0.1);
+    position: relative;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: rgba($white, 1);
+      border-bottom-color: rgba($accent-color, 0.3);
+    }
+
+    .pgn__card-header-title-md {
+      font-size: 1.6rem;
+      font-weight: 900;
+      margin: 0;
+      color: $primary-color;
+      letter-spacing: -0.5px;
+      line-height: 1.3;
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: darken($primary-color, 5%);
+        transform: translateX(4px);
+      }
+    }
+
+    .btn-brand {
+      background: $secondary-color;
+      border: none;
+      color: $white;
+      border-radius: 35px;
+      padding: 1.2rem 3rem;
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba($secondary-color, 0.3);
+      
+      // Efecto shimmer mejorado
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -150%;
+        width: 150%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba($white, 0.4), rgba($white, 0.6), rgba($white, 0.4), transparent);
+        transition: left 0.8s;
+        transform: skewX(-25deg);
+      }
+
+      // Efecto de resplandor
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        background: rgba($white, 0.3);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        transition: all 0.6s;
+      }
+
+      &:hover {
+        background: darken($secondary-color, 8%);
+        transform: translateY(-4px) scale(1.05);
+        box-shadow: 0 12px 35px rgba($secondary-color, 0.5);
+        
+        &::before {
+          left: 150%;
+        }
+
+        &::after {
+          width: 300px;
+          height: 300px;
+        }
+      }
+
+      &:active {
+        transform: translateY(-2px) scale(1.02);
+        box-shadow: 0 8px 25px rgba($secondary-color, 0.4);
+      }
+    }
+
+    // Decoración mejorada
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: $accent-color;
+      border-radius: 2px;
+      transition: all 0.4s ease;
+      box-shadow: 0 2px 8px rgba($accent-color, 0.4);
+    }
+
+    &:hover::after {
+      width: 120px;
+      height: 5px;
+      bottom: -3px;
+      box-shadow: 0 4px 12px rgba($accent-color, 0.6);
+    }
+  }
+
+  // Efecto de resplandor sutil
+  &::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: $secondary-color;
+    border-radius: 22px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  &:hover::after {
+    opacity: 0.1;
+  }
+
+  // === SOBREESCRIBIR ACCIONES DEL HEADER ===
+  // Selector específico para sobreescribir el background color existente
+  &.raised-card .pgn__card-header-actions a,
+  .pgn__card-header-actions a {
+    background: $secondary-color !important; // Sobreescribir el color diferente
+    border: none !important;
+    border-radius: 25px !important; // Más redondeado que el original (6px)
+    font-size: 14px !important;
+    line-height: 20px !important;
+    padding: 12px 20px !important; // Mejor proporción que 9px 17px
+    color: $white !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: 0 3px 8px rgba($secondary-color, 0.25) !important;
+
+    &:hover {
+      background: darken($secondary-color, 10%) !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 6px 15px rgba($secondary-color, 0.35) !important;
+      color: $white !important;
+      text-decoration: none !important;
+    }
+
+    &:focus {
+      outline: 2px solid $accent-color !important;
+      outline-offset: 2px !important;
+      background: $secondary-color !important;
+    }
+
+    &:active {
+      transform: translateY(0) !important;
+      box-shadow: 0 3px 8px rgba($secondary-color, 0.25) !important;
+    }
+  }
+}
+
+// === BOTÓN EXPAND ALL ===
+.btn-outline-primary {
+  border: 2px solid $secondary-color;
+  color: $secondary-color;
+  background: $white;
+  border-radius: 24px;
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+
+  &:hover,
+  &:focus {
+    background: $secondary-color;
+    border-color: $secondary-color;
+    color: $white;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba($secondary-color, 0.3);
+  }
+}
+
+// === LISTA DEL CURSO ===
+#courseHome-outline {
+  .collapsible-card-lg {
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba($primary-color, 0.08);
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    background: $white;
+
+    // Barra lateral de progreso
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: $secondary-color;
+      opacity: 0.3;
+      transition: all 0.3s ease;
+    }
+
+    &:hover {
+      box-shadow: 0 8px 30px rgba($primary-color, 0.15);
+      transform: translateY(-2px);
+
+      &::before {
+        opacity: 1;
+        width: 6px;
+      }
+    }
+
+    &.is-open {
+      box-shadow: 0 8px 30px rgba($primary-color, 0.15);
+      background: lighten($accent-color, 48%);
+
+      &::before {
+        opacity: 1;
+        width: 6px;
+        background: $accent-color;
+      }
+    }
+
+    .collapsible-trigger {
+      background: transparent;
+      padding: 1.75rem 1.5rem;
+      border: none;
+      transition: all 0.3s ease;
+      position: relative;
+
+      &:hover {
+        background: rgba($light-bg, 0.5);
+      }
+
+      // Contenedor principal del trigger
+      .d-flex.row {
+        align-items: center;
+        position: relative;
+
+        // Columna del ícono de estado
+        .col-auto {
+          .svg-inline--fa {
+            width: 32px !important;
+            height: 32px !important;
+            padding: 6px;
+            border-radius: 50%;
+            background: rgba($secondary-color, 0.1);
+            border: 2px solid rgba($secondary-color, 0.2);
+            transition: all 0.3s ease;
+
+            &.text-gray-400 {
+              color: $secondary-color !important;
+            }
+
+            &.text-success {
+              color: $success-color !important;
+              background: rgba($success-color, 0.1);
+              border-color: rgba($success-color, 0.3);
+            }
+          }
+        }
+
+        // Columna del título
+        .col-7 {
+          .text-dark-500 {
+            color: $primary-color !important;
+            font-weight: 700 !important;
+            font-size: 1.1rem !important;
+            line-height: 1.3;
+            position: relative;
+
+            .align-middle {
+              position: relative;
+              
+              // Numeración automática para módulos
+              &::before {
+                content: counter(module-counter, decimal-leading-zero);
+                counter-increment: module-counter;
+                position: absolute;
+                left: -45px;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 30px;
+                height: 30px;
+                background: $secondary-color;
+                color: $white;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 0.75rem;
+                font-weight: 700;
+                box-shadow: 0 3px 8px rgba($secondary-color, 0.3);
+              }
+            }
+          }
+        }
+      }
+
+      // Botón expandir/colapsar
+      .collapsible-icon {
+        .btn-icon {
+          border-radius: 12px !important;
+          width: 40px !important;
+          height: 40px !important;
+          box-shadow: 0 4px 12px rgba($secondary-color, 0.2) !important;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+
+          &:hover {
+            transform: translateY(-2px) rotate(90deg) !important;
+            box-shadow: 0 6px 16px rgba($secondary-color, 0.3) !important;
+          }
+
+          .btn-icon__icon {
+            transition: transform 0.3s ease !important;
+          }
+        }
+      }
+    }
+
+    .collapsible-body {
+      background: $white;
+      padding: 1.5rem 2rem;
+      border-top: 1px solid rgba($secondary-color, 0.1);
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 2rem;
+        right: 2rem;
+        height: 1px;
+        background: rgba($secondary-color, 0.2);
+      }
+
+      .row {
+        margin-bottom: 1rem;
+        padding: 0.75rem 1rem;
+        border-radius: 12px;
+        transition: all 0.2s ease;
+        position: relative;
+
+        &:hover {
+          background: rgba($secondary-color, 0.05);
+          transform: translateX(8px);
+        }
+
+        &::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 3px;
+          height: 20px;
+          background: $accent-color;
+          border-radius: 2px;
+          opacity: 0;
+          transition: opacity 0.2s ease;
+        }
+
+        &:hover::before {
+          opacity: 1;
+        }
+
+        a {
+          color: $secondary-color !important;
+          text-decoration: none !important;
+          font-weight: 600 !important;
+          font-size: 0.95rem !important;
+          transition: color 0.2s ease !important;
+
+          &:hover {
+            color: darken($secondary-color, 15%) !important;
+            text-shadow: 0 1px 2px rgba($secondary-color, 0.1);
+          }
+        }
+
+        .text-gray-500 {
+          background: lighten($secondary-color, 42%) !important;
+          color: $secondary-color !important;
+          padding: 0.4rem 0.9rem !important;
+          border-radius: 20px !important;
+          font-size: 0.7rem !important;
+          font-weight: 600 !important;
+          text-transform: uppercase !important;
+          letter-spacing: 0.5px !important;
+          border: 1px solid rgba($secondary-color, 0.2);
+          box-shadow: 0 2px 4px rgba($secondary-color, 0.1);
+        }
+
+        .text-body {
+          color: lighten($primary-color, 25%) !important;
+          font-style: italic !important;
+          font-size: 0.85rem !important;
+          margin-top: 0.25rem !important;
+        }
+      }
+    }
+  }
+
+  // Counter para numeración automática
+  counter-reset: module-counter;
+
+  // Animación de entrada escalonada mejorada
+  li {
+    opacity: 0;
+    animation: slideInModule 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+
+    @for $i from 1 through 15 {
+      &:nth-child(#{$i}) {
+        animation-delay: #{0.6 + ($i - 1) * 0.15}s;
+      }
+    }
+
+    // Efecto hover mejorado para los items
+    &:hover {
+      .collapsible-card-lg {
+        transform: translateY(-3px) scale(1.02);
+        
+        &::before {
+          width: 8px;
+          opacity: 1;
+          background: $accent-color;
+        }
+      }
+    }
+  }
+}
+
+@keyframes slideInModule {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) translateX(-20px) scale(0.95);
+    filter: blur(4px);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translateY(20px) translateX(-10px) scale(0.98);
+    filter: blur(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) translateX(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes cardFloatIn {
+  0% {
+    opacity: 0;
+    transform: translateY(60px) scale(0.8) rotate(3deg);
+    box-shadow: none;
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateY(30px) scale(0.9) rotate(1deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(0deg);
+    box-shadow: 0 10px 40px rgba($primary-color, 0.1);
+  }
+}
+
+@keyframes expandCollapse {
+  0% {
+    max-height: 0;
+    opacity: 0;
+    transform: scaleY(0.8);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scaleY(0.9);
+  }
+  100% {
+    max-height: 1000px;
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+@keyframes pulseAccent {
+  0% {
+    background: $accent-color;
+    box-shadow: 0 0 10px rgba($accent-color, 0.3);
+  }
+  50% {
+    background: lighten($accent-color, 10%);
+    box-shadow: 0 0 20px rgba($accent-color, 0.6);
+  }
+  100% {
+    background: $accent-color;
+    box-shadow: 0 0 10px rgba($accent-color, 0.3);
+  }
+}
+
+// === ANIMACIONES APLICADAS ===
+
+// Animación principal del contenedor
+.course-outline-tab {
+  animation: cardFloatIn 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  animation-fill-mode: both;
+}
+
+// Animación de la tarjeta de progreso
+.pgn__card {
+  animation: cardFloatIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  animation-delay: 0.2s;
+  animation-fill-mode: both;
+}
+
+// Animación para alertas
+.alert-success {
+  animation: slideInModule 0.7s ease-out;
+  animation-delay: 0.1s;
+  animation-fill-mode: both;
+}
+
+// Animación del botón expand
+.btn-outline-primary {
+  animation: slideInModule 0.5s ease-out;
+  animation-delay: 0.4s;
+  animation-fill-mode: both;
+}
+
+// === RESPONSIVE IMPROVEMENTS ===
+@media (max-width: 768px) {
+  .course-outline-tab {
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
+  .pgn__card {
+    .pgn__card-header {
+      padding: 1rem;
+      
+      .pgn__card-header-title-md {
+        font-size: 1.1rem;
+      }
+    }
+  }
+
+  .btn-outline-primary {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+// === ANIMACIONES ADICIONALES ===
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) rotate(6deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05) rotate(-2deg);
+  }
+  70% {
+    transform: scale(0.9) rotate(1deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+// Aplicar animaciones a elementos específicos
+.course-outline-tab > * {
+  animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  animation-fill-mode: both;
+}
+
+// Animación escalonada para columnas
+.course-outline-tab .col-md-8 {
+  animation-delay: 0.2s;
+}
+
+.course-outline-tab .col-md-4 {
+  animation-delay: 0.4s;
+}
+
+// Animación para botones con efecto shimmer en hover
+.btn-brand:hover {
+  animation: shimmer 1.5s infinite;
+  background-image: linear-gradient(
+    90deg,
+    $secondary-color 0%,
+    lighten($secondary-color, 10%) 50%,
+    $secondary-color 100%
+  );
+  background-size: 1000px 100%;
+}
+
+// === MEJORAS DE ACCESIBILIDAD CON ANIMACIONES ===
+.collapsible-trigger:focus {
+  outline: 3px solid $accent-color;
+  outline-offset: 3px;
+  animation: pulseAccent 2s infinite;
+}
+
+.btn:focus {
+  outline: 3px solid $accent-color;
+  outline-offset: 3px;
+  animation: pulseAccent 2s infinite;
+}
+
+// Animación para elementos expandibles
+.collapsible-body {
+  animation: expandCollapse 0.5s ease-out;
+  transform-origin: top;
+}
+
+// Efecto de micro-interacción en links
+.pgn__hyperlink {
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: $accent-color;
+    transition: width 0.3s ease;
+  }
+  
+  &:hover::before {
+    width: 100%;
+  }
+}
